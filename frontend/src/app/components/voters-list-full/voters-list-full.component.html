@@ -1,0 +1,39 @@
+<div class="card">
+  <div class="card-header">
+    <h3 class="card-title">List of members with mobile number and Area</h3>
+  </div>
+  <!-- /.card-header -->
+  <div class="card-body">
+    <table id="example1" datatable="ng" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th>Area</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let voter of votersList; let i = index">
+
+          <td><strong>{{ voter.memberid }}</strong></td>
+          <td>{{ voter.name }}</td>
+          <td>{{ voter.mobileNumber }}</td>
+          <td>{{ voter.address }}</td>
+          <td>{{ voter.area }}</td>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Mobile</th>
+          <th>Address</th>
+          <th>Area</th>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
+  <!-- /.card-body -->
+</div>

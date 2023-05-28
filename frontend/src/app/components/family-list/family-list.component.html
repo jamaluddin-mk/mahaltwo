@@ -1,0 +1,49 @@
+<div class="container">
+  <p *ngIf="Family.length <= 0" class="no-data text-center">
+    There is no family added yet!
+  </p>
+
+  <!-- Employee list -->
+  <div class="card">
+
+    <div class="card-body">
+      <table id="example1" class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>Family ID</th>
+            <th>Name</th>
+            <th>Test</th>
+            <th>Mobile</th>
+            <th>Edit/Remove</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let family of Family; let i = index">
+
+            <td scope="row">...{{ family._id | slice:18:24}}</td>
+            <td>{{ family.name }}</td>
+            <td>{{ family.familyid }}</td>
+            <td class="text-center">{{ family.mobileNumber }}</td>
+            <td class="text-center edit-block">
+              <span class="edit" [routerLink]="['/edit-family/', family._id]">
+                <button type="button" class="btn btn-success btn-sm">...</button>
+              </span>
+              &nbsp;<span class="delete" (click)="removeFamily(family, i)">
+                <button type="button" class="btn btn-danger btn-sm">x</button>
+              </span>
+            </td>
+          </tr>
+        </tbody>
+        <thead>
+          <tr>
+            <th>Family ID</th>
+            <th>Name</th>
+            <th>Test</th>
+            <th>Mobile</th>
+            <th>Edit/Remove</th>
+          </tr>
+        </thead>
+      </table>
+    </div>
+  </div>
+</div>

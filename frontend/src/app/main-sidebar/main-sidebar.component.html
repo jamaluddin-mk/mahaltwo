@@ -1,0 +1,123 @@
+<!-- Main Sidebar Container -->
+<aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <!-- Brand Logo -->
+  <div class="brand-link">
+    <img src="assets/dist/img/AdminLTELogo.png" alt="KHMJ Logo" class="brand-image img-circle elevation-3"
+      style="opacity: .8">
+    <span class="brand-text font-weight-light">KHMJ Bangalore</span>
+  </div>
+
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <!-- Sidebar user panel (optional) -->
+    <!--     <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="image">
+        <img src="assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+      </div>
+      <div class="info">
+        C H Moideen
+      </div>
+    </div> -->
+
+    <!-- SidebarSearch Form -->
+    <!--     <div class="form-inline">
+      <div class="input-group" data-widget="sidebar-search">
+        <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+        <div class="input-group-append">
+          <button class="btn btn-sidebar">
+            <i class="fas fa-search fa-fw"></i>
+          </button>
+        </div>
+      </div>
+    </div> -->
+
+    <!-- Sidebar Menu -->
+    <nav class="mt-2">
+      <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+        <li class="nav-item menu-open">
+          <!--           <a href="#" class="nav-link active">
+            <i class="nav-icon fas fa-tachometer-alt"></i>
+            <p>
+              Dashboard
+              <i class="right fas fa-angle-left"></i>
+            </p>
+          </a>
+ -->
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="routerLinkVariableDB" class="nav-link" (click)="emitData('Dashboard')"> <!-- active -->
+                <i class="far fa-circle nav-icon"></i>
+                <p>Dashboard</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a [routerLink]="" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Member
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="routerLinkVariableCM" class="nav-link" (click)="emitData('Register Member')">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Register Member</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="routerLinkVariableML" class="nav-link" (click)="emitData('Members List')">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Members List</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="" class="nav-link">
+            <i class="nav-icon fas fa-copy"></i>
+            <p>
+              Family
+              <i class="fas fa-angle-left right"></i>
+            </p>
+          </a>
+          <ul class="nav nav-treeview">
+            <li class="nav-item">
+              <a [routerLink]="routerLinkVariableAF" class="nav-link" (click)="emitData('Add Family')">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Add Family</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a [routerLink]="routerLinkVariableFL" class="nav-link" (click)="emitData('Family List')">
+                <i class="far fa-circle nav-icon"></i>
+                <p>Family List</p>
+              </a>
+            </li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="routerLinkVariableVL" class="nav-link" (click)="emitData('Voters List')">
+            <i class="far fa-circle nav-icon"></i>
+            <p>Voters list</p>
+          </a>
+        </li>
+
+        <li class="nav-item">
+          <a [routerLink]="routerLinkVariableMC" class="nav-link" (click)="emitData('Member collection')">
+            <i class="nav-icon far fa-circle text-info"></i>
+            <p>Member collection</p>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.sidebar-menu -->
+  </div>
+  <!-- /.sidebar -->
+</aside>

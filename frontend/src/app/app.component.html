@@ -1,0 +1,26 @@
+<app-main-header></app-main-header>
+<app-main-sidebar (dataEvent)="receiveData($event)"></app-main-sidebar>
+<app-control-sidebar></app-control-sidebar>
+
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <app-content-wrapper [PageTitle]="parentData"></app-content-wrapper>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- Main row -->
+      <div class="row">
+        <router-outlet></router-outlet>
+      </div>
+      <!-- /.row -->
+    </div><!--/. container-fluid -->
+  </section>
+  <!-- /.content -->
+</div>
+<app-main-footer></app-main-footer>
+
+<div style="text-align:center">
+  © 2023 All Rights Reserved by MahalOne.ORG
+</div>

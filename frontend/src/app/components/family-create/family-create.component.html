@@ -1,0 +1,240 @@
+<form [formGroup]="familyForm" (ngSubmit)="onSubmit()">
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+
+
+        <div class="col-sm-6">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Personal Details</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <div class="card-body">
+              <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+                <div class="invalid" *ngIf="submitted && myForm['name'].errors?.['required']">
+                  Name is required.
+                </div>
+              </div>
+
+              <!-- Date dd/mm/yyyy -->
+              <div class="form-group">
+                <label>DOB</label>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="far fa-calendar-alt"></i></span>
+                  </div>
+                  <input type="text" class="form-control" formControlName="dob" data-inputmask-alias="datetime"
+                    data-inputmask-inputformat="dd/mm/yyyy" data-mask>
+                  <div class="invalid" *ngIf="submitted && myForm['dob'].errors?.['required']">
+                    DOB is required.
+                  </div>
+                </div>
+              </div>
+              <!-- phone mask -->
+              <div class="form-group">
+                <label>Mobile Number</label>
+
+                <div class="input-group">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                  </div>
+                  <input type="number" class="form-control" formControlName="mobileNumber"
+                    data-inputmask="'mask': ['+91 xxxx-nnnnnn', '+91 xxxx-nnnnnn']" data-mask>
+                  <div class="invalid" *ngIf="submitted && myForm['mobileNumber'].errors?.['required']">
+                    MobileNumber is required.
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input class="form-control" type="text" formControlName="address" placeholder="address">
+                <!-- error -->
+                <div class="invalid" *ngIf="submitted && myForm['address'].errors?.['required']">
+                  Address is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="inputinBangaloreSince">In Bangalore since</label>
+                <input type="text" class="form-control" formControlName="inBangaloreSince" placeholder="date">
+                <div class="invalid" *ngIf="submitted && myForm['inBangaloreSince'].errors?.['required']">
+                  In Bangalore since is required.
+                </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <label for="inputGoogleLocation">GoogleLocation</label>
+                <input class="form-control" type="text" formControlName="googleLocation" />
+                <!-- error -->
+                <div class="invalid" *ngIf="submitted && myForm['googleLocation'].errors?.['required']">
+                  GoogleLocation is required.
+                </div>
+              </div>
+
+
+              <div class="form-group">
+                <label for="inputNativeAddress">NativeAddress</label>
+                <input class="form-control" type="text" formControlName="nativeAddress" />
+                <!-- error -->
+                <div class="invalid" *ngIf="submitted && myForm['nativeAddress'].errors?.['required']">
+                  NativeAddress is required.
+                </div>
+              </div>
+
+
+
+
+              <div class="form-group">
+                <label for="inputPassword3">Qualification</label>
+                <select class="custom-select form-control" (change)="updateQualification($event.target.value)"
+                  formControlName="qualification">
+                  <option *ngFor="let qualification of QualificationList" value="{{ qualification }}">
+                    {{ qualification }}
+                  </option>
+                </select>
+                <!-- error -->
+                <div class="invalid" *ngIf="submitted && myForm['qualification'].errors?.['required']">
+                  Choose Qualification.
+                </div>
+              </div>
+
+
+
+
+
+              <div class="form-group">
+                <label for="inputHouseCategory">HouseCategory</label>
+                <select class="custom-select form-control" formControlName="houseCategory">
+                  <option value="">
+                  <option value="Own">Own</option>
+                  <option value="Rental">Rental</option>
+                </select>
+                <div class="invalid" *ngIf="submitted && myForm['houseCategory'].errors?.['required']">
+                  HouseCategory is required.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <!-- general form elements -->
+          <div class="card card-secondary">
+            <div class="card-header">
+              <h3 class="card-title">Family Details</h3>
+            </div>
+
+            <div class="form-group">
+              <label for="inputFamilyId">FamilyId</label>
+              <input class="form-control" type="text" formControlName="familyId" />
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['familyId'].errors?.['required']">
+                FamilyId is required.
+              </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+              <label for="inputPassword3">Profession</label>
+              <select class="custom-select form-control" (change)="updateProfession($event.target.value)"
+                formControlName="profession">
+                <option *ngFor="let profession of ProfessionList" value="{{ profession }}">
+                  {{ profession }}
+                </option>
+              </select>
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['profession'].errors?.['required']">
+                Choose Profession.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputProfessionNature">Profession Nature</label>
+              <input class="form-control" type="text" formControlName="professionNature" />
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['professionNature'].errors?.['required']">
+                ProfessionNature is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputOrganization">Organization (Company/shop)</label>
+              <input class="form-control" type="text" formControlName="organization">
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['organization'].errors?.['required']">
+                Organization is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputFamilyStatus">FamilyStatus</label>
+              <input class="form-control" type="text" formControlName="familyStatus" />
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['familyStatus'].errors?.['required']">
+                FamilyStatus is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputDesignation">Designation</label>
+              <input class="form-control" type="text" formControlName="designation" />
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['designation'].errors?.['required']">
+                Designation is required.
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="inputEmail3">Email</label>
+              <input class="form-control" type="text" formControlName="email" />
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['email'].errors?.['required']">
+                Enter your email.
+              </div>
+              <div class="invalid" *ngIf="submitted && myForm['email'].errors?.['pattern']">
+                Enter valid email.
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label for="inputPassword3">Areas</label>
+              <select class="custom-select form-control" (change)="updateArea($event.target.value)"
+                formControlName="area">
+                <option *ngFor="let area of AreaList" value="{{ area }}">
+                  {{ area }}
+                </option>
+              </select>
+              <!-- error -->
+              <div class="invalid" *ngIf="submitted && myForm['area'].errors?.['required']">
+                Choose Area.
+              </div>
+            </div>
+            <br>
+            <div class="form-group">
+              <button class="btn btn-success btn-lg btn-block" type="submit">
+                Register Family
+              </button>
+            </div>
+
+          </div>
+          <!-- /.card -->
+        </div>
+
+      </div>
+    </div>
+  </section>
+</form>

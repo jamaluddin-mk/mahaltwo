@@ -1,0 +1,48 @@
+<div class="container">
+  <p *ngIf="Member.length <= 0" class="no-data text-center">
+    There is no member added yet!
+  </p>
+</div>
+
+<div class="card">
+
+  <div class="card-body">
+    <table id="example1" class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Member ID</th>
+          <th>Name</th>
+          <th>Test</th>
+          <th>Mobile</th>
+          <th>Edit/Remove</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let member of Member; let i = index">
+
+          <td scope="row">...{{ member._id | slice:18:24}}</td>
+          <td>{{ member.name }}</td>
+          <td>{{ member.memberid }}</td>
+          <td class="text-center">{{ member.mobileNumber }}</td>
+          <td class="text-center edit-block">
+            <span class="edit" [routerLink]="['/edit-member/', member._id]">
+              <button type="button" class="btn btn-success btn-sm">...</button>
+            </span>
+            &nbsp;<span class="delete" (click)="removeMember(member, i)">
+              <button type="button" class="btn btn-danger btn-sm">x</button>
+            </span>
+          </td>
+        </tr>
+      </tbody>
+      <thead>
+        <tr>
+          <th>Member ID</th>
+          <th>Name</th>
+          <th>Test</th>
+          <th>Mobile</th>
+          <th>Edit/Remove</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+</div>

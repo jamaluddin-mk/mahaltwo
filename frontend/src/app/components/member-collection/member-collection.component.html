@@ -1,0 +1,93 @@
+<form [formGroup]="memberCollectionForm" (ngSubmit)="onSubmit()">
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <!-- left column -->
+        <div class="col-sm-7">
+          <!-- general form elements -->
+          <div class="card card-primary">
+            <div class="card-header">
+              <h3 class="card-title">Collection form</h3>
+            </div>
+            <!-- /.card-header -->
+            <!-- form start -->
+            <div class="card-body">
+
+              <div class="form-group">
+                <label for="inputMemberId">MemberId</label>
+                <input class="form-control" type="text" formControlName="memberId" placeholder="Enter MemberId" />
+                <!-- error -->
+                <div class="invalid" *ngIf="submitted && myForm['memberId'].errors?.['required']">
+                  MemberId is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputName">Name</label>
+                <input type="text" class="form-control" formControlName="name" placeholder="Enter Name">
+                <div class="invalid" *ngIf="submitted && myForm['name'].errors?.['required']">
+                  Name is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputreceiptNumber">Receipt Number</label>
+                <input type="number" class="form-control" id="receiptNumber" formControlName="receiptNumber"
+                  placeholder="Enter Receipt Number">
+                <div class="invalid" *ngIf="submitted && myForm['receiptNumber'].errors?.['required']">
+                  Receipt Number is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputreceiptDate">Receipt Date</label>
+                <input type="date" class="form-control" id="receiptDate" formControlName="receiptDate"
+                  placeholder="Enter Receipt date">
+                <div class="invalid" *ngIf="submitted && myForm['receiptDate'].errors?.['required']">
+                  Receipt Date is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputamount">Amount</label>
+                <input type="number" class="form-control" id="amount" formControlName="amount"
+                  placeholder="Enter Amount">
+                <div class="invalid" *ngIf="submitted && myForm['amount'].errors?.['required']">
+                  Amount is required.
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputremarks">Remarks</label>
+                <input type="text" class="form-control" id="remarks" formControlName="remarks"
+                  placeholder="Enter Remarks">
+                <div class="invalid" *ngIf="submitted && myForm['remarks'].errors?.['required']">
+                  Remarks is required.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <button class="btn btn-success btn-lg btn-block toastrDefaultSuccess" type="submit">
+                  Submit
+                </button>
+
+                <button type="button" class="btn btn-success toastrDefaultSuccess">
+                  Launch Success Toast
+                </button>
+                <button class="btn btn-primary toastr-button toast-success">Click Me</button>
+
+                <div class="toast toast-success">
+                  <div class="toast-title">Success!</div>
+                  <div class="toast-message">Your message here.</div>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+  </section>
+</form>
